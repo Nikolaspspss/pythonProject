@@ -1,5 +1,4 @@
 
-
 field = [['-']*3 for _ in range(3)]
 
 def show_field(field):
@@ -25,6 +24,7 @@ def user_input(field):
             continue
         break
     return x,y
+
 count = 0
 
 def win(f,user):
@@ -57,6 +57,6 @@ while True:
     count+=1
     if win(field,user):
         print(f'viktory {user}')
-        show_field(field)
+        break
     print('количество ходов',count)
 
