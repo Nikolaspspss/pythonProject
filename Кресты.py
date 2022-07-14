@@ -7,29 +7,55 @@ def show_field(field):
     for i in range(len(field)):
         print(str(i) + '  ' + '  '.join(field[i]))
 
-show_field(field)
 
-#i = 1
-#j = 2
-#print(i+j)
-
-def user_input(f):
+def user_input(field):
     while True:
         place= input('введите координаты :').split()
         if len(place)!=2:
             print("введите две координаты")
             continue
-        break
         if  not(place[0].isdigit() and place[1].isdigit()):
             print('введите числа')
-            сontinue
+            continue
         x,y = map(int,place)
-        if not(x>=0 and x<3 and y<3 and y>=0):
-            print('вышли из диапозона')
-            сontinue
-        if f[x][y]!='-':
+        if field [x][y] != '-':
             print('клетка занята')
             continue
+        if not(3>=x>=0 and 3>=y>=0 ):
+            print('Вышли из диапозона')
+            continue
         break
-        return x,y
-user_input(field)
+    return x,y
+
+while True:
+    count = 0
+    if count == 9:
+        break
+    if count%2 == 0:
+        count += 1
+        show_field(field)
+        x,y = user_input(field)
+        field[x][y] = 'x'
+        print('Количество ходов', count)
+    if count%1 == 0:
+        count += 1
+        show_field(field)
+        x,y = user_input(field)
+        field[x][y] = 'o'
+        print('Количество ходов', count)
+    if winner1(field,user):
+        print(f"'Выйграл'{user}")
+
+def winner1 (field, user):
+    def chek_line(a1, a2, a3, user):
+        if a1==user and a2==user and a3==user:
+            return True
+    for n in range(3):
+        if chek_line(field[n][0], field[n][1], field[n][2], user) or \
+        chek_line(field[1][n], field[1][n], field[1][n], user) or\
+        chek_line(field[0][0], field[1][1], field[2][2], user)or\
+        chek_line(field[2][0], field[1][1], field[0][2], user):
+            return True
+    return False
+
+winner1

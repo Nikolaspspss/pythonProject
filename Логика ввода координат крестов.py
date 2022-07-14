@@ -1,19 +1,19 @@
-def user_input(f):
+
+def user_input(field):
     while True:
         place= input('введите координаты :').split()
         if len(place)!=2:
             print("введите две координаты")
             continue
-        break
         if  not(place[0].isdigit() and place[1].isdigit()):
             print('введите числа')
-            сontinue
+            continue
         x,y = map(int,place)
-        if not(x>=0 and x<3 and y<3 and y>=0):
-            print('вышли из диапозона')
-            сontinue
-        if f[x][y]!='-':
+        if field [x][y] != '-':
             print('клетка занята')
             continue
+        if not(3>=x>=0 and 3>=y>=0 ):
+            print('Вышли из диапозона')
+            continue
         break
-        return x,y
+    return x,y
