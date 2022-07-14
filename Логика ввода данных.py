@@ -15,5 +15,4 @@ while True:
         x,y = user_input(field)
         field[x][y] = 'o'
         print('Количество ходов', count)
-    if winner1(field,user):
-        print(f"'Выйграл'{user}")
+

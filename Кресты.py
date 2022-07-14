@@ -17,34 +17,33 @@ def user_input(field):
         if  not(place[0].isdigit() and place[1].isdigit()):
             print('введите числа')
             continue
-        x,y = map(int,place)
-        if field [x][y] != '-':
-            print('клетка занята')
-            continue
-        if not(3>=x>=0 and 3>=y>=0 ):
+        x,y=map(int,place)
+        if not (3>x>=0 and 3>y>=0):
             print('Вышли из диапозона')
+            continue
+        if field[x][y] != '-':
+            print('клетка занята')
             continue
         break
     return x,y
 
+
+count = 0
 while True:
-    count = 0
     if count == 9:
         break
     if count%2 == 0:
         count += 1
         show_field(field)
         x,y = user_input(field)
-        field[x][y] = 'x'
+        field[x][y] = 'X'
         print('Количество ходов', count)
     if count%1 == 0:
         count += 1
         show_field(field)
         x,y = user_input(field)
-        field[x][y] = 'o'
+        field[x][y] = 'O'
         print('Количество ходов', count)
-    if winner1(field,user):
-        print(f"'Выйграл'{user}")
 
 def winner1 (field, user):
     def chek_line(a1, a2, a3, user):
@@ -58,4 +57,3 @@ def winner1 (field, user):
             return True
     return False
 
-winner1

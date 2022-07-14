@@ -1,4 +1,4 @@
-
+field = [['-']*3 for _ in range(3)]
 def user_input(field):
     while True:
         place= input('введите координаты :').split()
@@ -17,3 +17,5 @@ def user_input(field):
             continue
         break
     return x,y
+
+user_input
