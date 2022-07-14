@@ -1,11 +1,11 @@
-
+#игравое поле
 field = [['-']*3 for _ in range(3)]
-
+#функция вывода поля
 def show_field(field):
     print('  0 1 2')
     for i in range(len(field)):
         print(str(i) + ' ' + ' '.join(field[i]))
-
+#функция ввода координат
 def user_input(field):
     while True:
         place= input('введите координаты :').split()
@@ -26,7 +26,7 @@ def user_input(field):
     return x,y
 
 count = 0
-
+#условия победы
 def win(f,user):
     win_cord = (((0, 0), (0, 1), (0, 2)), ((1, 0), (1, 1), (1, 2)), ((2, 0), (2, 1), (2, 2)),
                 ((0, 2), (1, 1), (2, 0)), ((0, 0), (1, 1), (2, 2)), ((0, 0), (1, 0), (2, 0)),
@@ -42,9 +42,9 @@ def win(f,user):
             print("Выиграл 0!!!")
             return True
     return False
-
+#основной цикл игры
 while True:
-    if count > 9:
+    if count == 9:
         print('Ничья')
         break
     if count%2 == 0:
